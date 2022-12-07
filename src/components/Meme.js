@@ -17,8 +17,9 @@ export default function Meme() {
     const myStyle={
         backgroundImage: 
         `url('${meme.randomImage}')`,
+        
     };
-    
+
     function getMemeImage() {
         const memesArray = allMemeImages.data.memes
         const randomNumber = Math.floor(Math.random() * memesArray.length)
@@ -35,20 +36,36 @@ export default function Meme() {
         
     }
 
-    
+    const [inputTop, setInputTop] = React.useState()
+    const [inputBottom, setInputBottom] = React.useState()
+
+    const inputRefTop = React.useRef();
+    const inputRefBottom = React.useRef();
+
+    function hendlerFirstInputTop() {
+        setInputTop(inputRefTop.current.value)
+    }
+
+    function hendlerFirstInputBottom() {
+        setInputBottom(inputRefBottom.current.value)
+    }
 
     return (
       <main>
       <div className="form">
           <input 
+              onChange={hendlerFirstInputTop}
               type="text"
               placeholder="Top text"
               className="form--inputs"
+              ref={inputRefTop}
           />
-          <input 
+          <input
+              onChange={hendlerFirstInputBottom}
               type="text"
               placeholder="Bottom text"
               className="form--inputs"
+              ref={inputRefBottom}
           />
           <button onClick={getMemeImage}
               className="form--button"
@@ -57,8 +74,8 @@ export default function Meme() {
           </button>
       </div>
       <section className='answe' style={myStyle}>
-            <h2 className="answe--title">answerOne</h2>
-            <h2 className="answe--title">answerTwo</h2>
+            <h2 className="answe--title">{inputTop}</h2>
+            <h2 className="answe--title">{inputBottom}</h2>
         </section>
     </main>
     )

@@ -27,14 +27,14 @@
 }
 
 .counter--count {
-    background-color: rgb(189, 252, 147);
+    background-color: #672280;
     height: 100px;
     width: 100px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #262626;
+    color: white;
 }
 
 .counter--plus {
