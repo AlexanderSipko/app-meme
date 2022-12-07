@@ -1,7 +1,9 @@
 
 .counter {
+    width: 150px;
     display: flex;
     align-items: flex-end;
+    margin: 0 auto;
 }
 
 .counter > button {

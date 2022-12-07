@@ -17,19 +17,21 @@ export default function Answer() {
      *    that runs `handleClick` when the div is clicked.
      */
     
+   
     function handleClick() {
-        
-        if (isImportant === 'Yes') {
-            setIsImportant("No")
-        } else {
-            setIsImportant("Yes")
-        }
+        setIsImportant(preInst => !preInst)
     }
+    const myStyle={
+        backgroundImage: 
+        "url('https://media.geeksforgeeks.org/wp-content/uploads/rk.png')",
+
+    };
 
     return (
-        <section className='answe' >
+        <section className='answe' style={myStyle}>
+
             <h2 className="answe--title">{answerOne}</h2>
-            <p>{isImportant}</p>
+            <p>{isImportant ? "Yes": "No"}</p>
             <h2 onClick={handleClick} className="answe--title">{answerTwo}</h2>
         </section>
     )

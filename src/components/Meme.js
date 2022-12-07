@@ -7,17 +7,38 @@ import {meData} from "../data/memesData.js"
 
 export default function Meme() {
 
-    const [memeImage, setMemeImage] = React.useState("")
-    let url
+    const [meme, setMeme] = React.useState({
+        topText: "",
+        bottomText: "",
+        randomImage: "http://i.imgflip.com/1bij.jpg" 
+    })
+    const [allMemeImages, setAllMemeImages] = React.useState(meData)
+    
+    const myStyle={
+        backgroundImage: 
+        `url('${meme.randomImage}')`,
+    };
+    
     function getMemeImage() {
-        const memesArray = meData.data.memes
+        const memesArray = allMemeImages.data.memes
         const randomNumber = Math.floor(Math.random() * memesArray.length)
-        setMemeImage(memesArray[randomNumber].url)
+        const url = memesArray[randomNumber].url
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            randomImage: url
+        }))
+
+        this.myStyle={
+            backgroundImage: 
+            `url('${meme.randomImage}')`,
+        };
+        
     }
+
+    
 
     return (
       <main>
-           <p>{url}</p>
       <div className="form">
           <input 
               type="text"
@@ -35,7 +56,10 @@ export default function Meme() {
               Get a new meme image 🖼
           </button>
       </div>
-      <img className="meme--image" src={memeImage} alt='' />
+      <section className='answe' style={myStyle}>
+            <h2 className="answe--title">answerOne</h2>
+            <h2 className="answe--title">answerTwo</h2>
+        </section>
     </main>
     )
 }
