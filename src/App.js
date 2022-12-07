@@ -10,7 +10,7 @@ function App() {
     <div>
         <Header />
         <Meme />
-        <Answer />
+        {/* <Answer /> */}
 
         <Plus />
     </div>
