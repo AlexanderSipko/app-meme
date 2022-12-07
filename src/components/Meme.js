@@ -5,15 +5,22 @@ import React from "react"
 import {meData} from "../data/memesData.js"
 
 
-
 export default function Meme() {
-    function handleclick() {
-        console.log(meData.data.memes)
+
+    let url
+    function getMemeImage() {
+        const memesArray = meData.data.memes;
+
+        const randomNumber = Math.floor(Math.random() * memesArray.length)
+        console.log(memesArray[randomNumber])
+        url = memesArray[randomNumber].url
+        console.log(url)
     }
 
     return (
       <main>
-      <form className="form">
+           <p>{url}</p>
+      <div className="form">
           <input 
               type="text"
               placeholder="Top text"
@@ -24,17 +31,13 @@ export default function Meme() {
               placeholder="Bottom text"
               className="form--inputs"
           />
-          <button onClick={handleclick}
+          <button onClick={getMemeImage}
               className="form--button"
           >
               Get a new meme image 🖼
           </button>
-      </form>
-      <button onClick={handleclick}
-              className="form--button"
-          >
-              Get a new meme image 🖼
-          </button>
+      </div>
+
     </main>
     )
 }
